@@ -1,0 +1,13 @@
+.orderSummaryLine {
+  width: 100%;
+  display: flex;
+  justify-content: space-between; }
+
+.itemTitle {
+  font-size: 0.875rem;
+  font-weight: 400; }
+
+.itemValue {
+  font-weight: 600; }
+
+/*# sourceMappingURL=SummaryLine.css.map */

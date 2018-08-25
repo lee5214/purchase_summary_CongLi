@@ -1,0 +1,7 @@
+{
+"version": 3,
+"mappings": "AAAA,oBAAoB;EAClB,SAAS,EAAE,OAAO;EAClB,UAAU,EAAE,iBAAiB;EAC7B,cAAc,EAAE,IAAI;;AAEtB,UAAU;EACR,WAAW,EAAE,GAAG;EAChB,SAAS,EAAE,OAAO;EAClB,SAAS,EAAE,GAAG",
+"sources": ["GrandTotal.scss"],
+"names": [],
+"file": "GrandTotal.css"
+}

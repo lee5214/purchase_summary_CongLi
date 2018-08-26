@@ -46,12 +46,5 @@ describe("<PersistentOrderSummary />", () => {
 
   it("has an input users can type in", () => {
     expect(wrapper.find("#promo-input").exists());
-
-    /*wrapper.find("#promo-input").simulate("change", {
-      target: "new"
-    });
-    wrapper.update();
-
-    expect(wrapper.find("#promo-input").props("value")).equals("new");*/
   });
 });

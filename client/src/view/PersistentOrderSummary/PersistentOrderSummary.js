@@ -5,7 +5,6 @@ import GrandTotal from "../../components/list/GrandTotal";
 import Expand from "../../components/itemDetail/Expand";
 import { connect } from "react-redux";
 import { fetchOrderSummary, applyPromo } from "../../actions";
-import ItemDetail from "../../components/itemDetail/ItemDetail";
 
 class PersistentOrderSummary extends Component {
   constructor(props) {

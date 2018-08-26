@@ -41,6 +41,7 @@ export default ({
           <span className={styles.promoTitle}>Promo code</span>
           <div className={styles.inputContainer}>
             <input
+              id={"promo-input"}
               className={styles.input}
               onChange={e => handlePromoInput(e.target.value)}
             />

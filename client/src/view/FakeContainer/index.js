@@ -1,8 +1,2 @@
-import React from "react";
-import styles from "./FakeContainer.css";
-
-const FakeContainer = props => {
-  return <div className={styles.container}>{props.children} </div>;
-};
-
+import FakeContainer from "./FakeContainer";
 export default FakeContainer;

@@ -1,18 +1,11 @@
 import React from "react";
 import styles from "./GrandTotal.css";
 
-const GroundTotal = ({ itemKey, itemValue, itemZip }) => {
+const GroundTotal = ({ itemKey, itemValue }) => {
   return (
-    <div style={{ margin: "20px 0" }}>
-      <div className={styles.grandTotalContainer}>
-        <span className={styles.itemTitle}>{itemKey}</span>
-        <span className={styles.itemValue}>{itemValue}</span>
-      </div>
-      {itemZip && (
-        <div className={styles.orderSummaryLine}>
-          <span className={styles.itemTitle}>(Based on {itemZip})</span>
-        </div>
-      )}
+    <div className={styles.grandTotalContainer}>
+      <span className={styles.itemTitle}>{itemKey}</span>
+      <span className={styles.itemValue}>{itemValue}</span>
     </div>
   );
 };

@@ -1,11 +1,17 @@
 .grandTotalContainer {
   font-size: 1.25rem;
   border-top: 1px solid #e6e7e8;
-  padding-bottom: 10px; }
+  margin: 10px 0 0 0;
+  padding: 10px 0; }
 
 .itemTitle {
   font-weight: 700;
   font-size: 1.25rem;
   max-width: 65%; }
+
+.itemValue {
+  font-weight: 700;
+  font-size: 1.5rem;
+  float: right; }
 
 /*# sourceMappingURL=GrandTotal.css.map */

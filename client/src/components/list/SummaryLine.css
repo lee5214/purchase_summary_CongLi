@@ -1,3 +1,8 @@
+.container {
+  margin: 6px 0; }
+  .container:first-child {
+    margin-top: 0; }
+
 .orderSummaryLine {
   width: 100%;
   display: flex;
@@ -8,6 +13,27 @@
   font-weight: 400; }
 
 .itemValue {
+  font-size: 0.875rem;
   font-weight: 600; }
+
+.button {
+  width: auto;
+  height: 20px;
+  padding: 0;
+  display: inline-block;
+  border: none;
+  font-weight: 400;
+  position: relative;
+  background: transparent;
+  color: #000;
+  vertical-align: inherit;
+  text-align: left;
+  text-decoration: underline;
+  font-size: 0.875rem; }
+  .button:focus {
+    outline: 1px solid #939598; }
+
+.cursor {
+  cursor: pointer; }
 
 /*# sourceMappingURL=SummaryLine.css.map */

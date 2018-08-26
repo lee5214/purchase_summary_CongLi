@@ -36,3 +36,9 @@
   width: 25%;
   display: inline-block;
 }
+
+@media screen and (max-width: 768px){
+  .summaryContainer{
+    width: 100% !important;
+  }
+}

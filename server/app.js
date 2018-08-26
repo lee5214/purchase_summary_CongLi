@@ -5,6 +5,7 @@ const logger = require("morgan");
 const cors = require("cors");
 
 const orderRouter = require("./routes/order");
+const promoRouter = require("./routes/promo");
 
 const app = express();
 app.set("trust proxy", true);
@@ -16,6 +17,7 @@ app.use(express.urlencoded({ extended: false }));
 app.use(cookieParser());
 
 app.use("/order", orderRouter);
+app.use("/promo", promoRouter);
 
 if (["production", "ci"].includes(process.env.NODE_ENV)) {
   app.use(express.static("../client/build"));

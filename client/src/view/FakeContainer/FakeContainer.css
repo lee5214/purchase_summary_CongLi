@@ -1,8 +1,9 @@
 .container {
   height: 100vh;
-  width: 976px;
+  max-width: 976px;
   margin: auto;
   position: relative;
-  text-align: right; }
+  text-align: right;
+  background: #e4e4e4; }
 
 /*# sourceMappingURL=FakeContainer.css.map */

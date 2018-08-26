@@ -5,25 +5,44 @@ const SummaryLine = ({
   itemKey,
   itemValue,
   itemZip,
+  toggleToolTip,
+  tooltipOpen,
   tooltipContent,
-  onClick
+  color
 }) => {
   return (
     <div className={styles.container}>
       <div className={styles.orderSummaryLine}>
         {tooltipContent ? (
-          <button className={`${styles.button} ${styles.cursor}`}>
-            {itemKey}
-          </button>
+          <div>
+            <button
+              className={`${styles.button} ${styles.cursor}`}
+              onFocus={toggleToolTip}
+              onBlur={() => toggleToolTip(false)}
+            >
+              {itemKey}
+            </button>
+            {tooltipOpen ? (
+              <div className={styles.tooltipContainer}>
+                <div className={styles.tooltipCaret} />
+                <div className={styles.tooltipContentContainer}>
+                  {tooltipContent}
+                </div>
+              </div>
+            ) : null}
+          </div>
         ) : (
           <span className={styles.itemTitle}>{itemKey}</span>
         )}
-        <span className={styles.itemValue}>{itemValue}</span>
+        <span className={styles.itemValue} style={{ color: color }}>
+          {itemValue}
+        </span>
       </div>
-
       {itemZip && (
         <div className={styles.orderSummaryLine}>
-          <span className={styles.itemTitle}>(Based on {itemZip})</span>
+          <span className={styles.itemTitle}>
+            (Based on <span className={styles.zip}>{itemZip}</span>)
+          </span>
         </div>
       )}
     </div>

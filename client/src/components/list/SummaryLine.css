@@ -36,4 +36,45 @@
 .cursor {
   cursor: pointer; }
 
+.tooltipContainer {
+  width: 203px;
+  position: absolute;
+  background: white;
+  word-wrap: break-word;
+  border-radius: 5px;
+  transform: translateX(-25%) translateY(25%);
+  box-shadow: 0 0 7px 0 rgba(0, 0, 0, 0.17);
+  font-size: .75rem;
+  z-index: 200; }
+
+.tooltipContentContainer {
+  background: white;
+  padding: 24px; }
+
+.tooltipCaret {
+  position: absolute;
+  top: -18px;
+  left: 83px;
+  width: 36px;
+  height: 18px;
+  z-index: -1; }
+  .tooltipCaret:before {
+    content: "";
+    z-index: -1;
+    position: absolute;
+    pointer-events: none;
+    top: 9px;
+    left: 9px;
+    width: 18px;
+    height: 18px;
+    background-color: #fff;
+    border: 1px solid rgba(0, 0, 0, 0.17);
+    border-width: 0 0 1px 1px;
+    box-shadow: 0 -1px 2px rgba(0, 0, 0, 0.17);
+    transform: rotate(-45deg); }
+
+.zip {
+  text-decoration: underline;
+  cursor: pointer; }
+
 /*# sourceMappingURL=SummaryLine.css.map */

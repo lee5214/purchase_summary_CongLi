@@ -5,7 +5,6 @@ const fetchOrderSummary = () => async dispatch => {
   await axios
     .get("/order")
     .then(res => {
-      console.log(res.data);
       dispatch({ type: FETCH_ORDER_SUMMARY, payload: res.data });
     })
     .catch(e => console.log(e));

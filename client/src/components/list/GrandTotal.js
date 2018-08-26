@@ -5,7 +5,7 @@ const GroundTotal = ({ itemKey, itemValue }) => {
   return (
     <div className={styles.grandTotalContainer}>
       <span className={styles.itemTitle}>{itemKey}</span>
-      <span className={styles.itemValue}>{itemValue}</span>
+      <span className={styles.itemValue}>${itemValue}</span>
     </div>
   );
 };

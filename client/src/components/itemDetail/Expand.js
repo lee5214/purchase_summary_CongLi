@@ -10,11 +10,16 @@ export default ({
   textWhenClosed,
   textWhenOpened,
   handlePromoInput,
-  handlePromoSubmit
+  handlePromoSubmit,
+  promoInput
 }) => {
   return (
     <div className={styles.container}>
-      <button className={styles.button} onClick={toggle}>
+      <button
+        id={`expand-button-${type}`}
+        className={styles.button}
+        onClick={toggle}
+      >
         {expanded ? (
           <span>
             <span>{textWhenOpened}</span>
@@ -29,7 +34,7 @@ export default ({
       </button>
 
       {expanded && type === "item" && items ? (
-        <div>
+        <div id={"expanded-item-container"}>
           {items.map(item => (
             <ItemDetail key={`ordered-${item.id}`} item={item} />
           ))}
@@ -37,13 +42,14 @@ export default ({
       ) : null}
 
       {expanded && type === "promo" ? (
-        <div>
+        <div id={"expanded-promo-container"}>
           <span className={styles.promoTitle}>Promo code</span>
           <div className={styles.inputContainer}>
             <input
               id={"promo-input"}
               className={styles.input}
               onChange={e => handlePromoInput(e.target.value)}
+              value={promoInput}
             />
             <button className={styles.inputButton} onClick={handlePromoSubmit}>
               Apply

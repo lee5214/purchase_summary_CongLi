@@ -1,7 +1,6 @@
 import axios from "axios";
 
 const APPLE_PROMO = "applyPromo";
-const PROMO_ERROR = "promoError";
 const applyPromo = str => async dispatch => {
   await axios
     .post("/promo", { promoCode: str })
@@ -11,7 +10,6 @@ const applyPromo = str => async dispatch => {
     })
     .catch(e => {
       console.log(e);
-      //dispatch({ type: PROMO_ERROR, payload: e.message });
     });
 };
-export { APPLE_PROMO, PROMO_ERROR, applyPromo };
+export { APPLE_PROMO, applyPromo };

@@ -89,6 +89,7 @@ class PersistentOrderSummary extends Component {
           toggle={this.togglePromo}
           handlePromoInput={this.handlePromoInput}
           handlePromoSubmit={this.handlePromoSubmit}
+          promoInput={this.state.promoInput}
         />
       </div>
     );

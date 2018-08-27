@@ -1,23 +1,13 @@
 import React from "react";
 import FakeContainer from "./FakeContainer";
-
-import { Provider } from "react-redux";
-import { applyMiddleware, createStore } from "redux";
-import rootReducer from "../../reducers";
-import { composeWithDevTools } from "redux-devtools-extension";
-import thunk from "redux-thunk";
 import { shallow } from "enzyme/build";
-
-const store = createStore(
-  rootReducer,
-  composeWithDevTools(applyMiddleware(thunk))
-);
+import Root from "../../Root";
 
 it("show the FakeContainer", () => {
   const wrapped = shallow(
-    <Provider store={store}>
+    <Root>
       <FakeContainer />
-    </Provider>
+    </Root>
   );
-  expect(wrapped.find(FakeContainer).length === 1);
+  expect(wrapped.find(FakeContainer).length === 3);
 });

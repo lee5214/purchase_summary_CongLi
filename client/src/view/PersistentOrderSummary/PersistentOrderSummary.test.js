@@ -1,50 +1,57 @@
 import React from "react";
 import PersistentOrderSummary from "./PersistentOrderSummary";
-import { Provider } from "react-redux";
-import { applyMiddleware, createStore } from "redux";
-import rootReducer from "../../reducers";
-import { composeWithDevTools } from "redux-devtools-extension";
-import thunk from "redux-thunk";
 import { shallow, mount } from "enzyme";
 import SummaryLine from "../../components/list/SummaryLine";
 import GrandTotal from "../../components/list/GrandTotal";
 import Expand from "../../components/itemDetail/Expand";
-
-const store = createStore(
-  rootReducer,
-  composeWithDevTools(applyMiddleware(thunk))
-);
+import ItemDetail from "../../components/itemDetail/ItemDetail";
+import Root from "../../Root";
 
 describe("<PersistentOrderSummary />", () => {
   let wrapper;
   beforeEach(() => {
     wrapper = mount(
-      <Provider store={store}>
+      <Root>
         <PersistentOrderSummary />
-      </Provider>
+      </Root>
     );
   });
   afterEach(() => {
     wrapper.unmount();
   });
 
-  it("show the PersistentOrderSummary", () => {
-    expect(wrapper.find(PersistentOrderSummary).exists());
+  // components count
+  it("has 1 PersistentOrderSummary", () => {
+    expect(wrapper.find(PersistentOrderSummary).length).toEqual(1);
   });
 
-  it("has SummaryLine", () => {
-    expect(wrapper.find(SummaryLine).exists());
+  it("has 3 SummaryLine", () => {
+    expect(wrapper.find(SummaryLine).length).toEqual(3);
   });
 
-  it("has GrandTotal", () => {
-    expect(wrapper.find(GrandTotal).exists());
+  it("has 1 GrandTotal", () => {
+    expect(wrapper.find(GrandTotal).length).toEqual(1);
   });
 
-  it("has Expand", () => {
-    expect(wrapper.find(Expand).exists());
+  it("has 2 Expand", () => {
+    expect(wrapper.find(Expand).length).toEqual(2);
   });
 
-  it("has an input users can type in", () => {
-    expect(wrapper.find("#promo-input").exists());
+  // expand button function
+  it("has button for promo", () => {
+    wrapper.find("#expand-button-promo").simulate("click");
+    wrapper.update();
+    expect(wrapper.find("#expanded-promo-container").length).toEqual(1);
+  });
+
+  // promo input
+  it("has promo input after promo button click, user can type in, and value is correct", () => {
+    wrapper.find("#expand-button-promo").simulate("click");
+    wrapper.update();
+    wrapper.find("input").simulate("change", {
+      target: { value: "test" }
+    });
+    wrapper.update();
+    expect(wrapper.find("input").prop("value")).toEqual("test");
   });
 });

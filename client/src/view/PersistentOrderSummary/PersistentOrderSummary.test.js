@@ -21,10 +21,6 @@ describe("<PersistentOrderSummary />", () => {
   });
 
   // components count
-  it("has 1 PersistentOrderSummary", () => {
-    expect(wrapper.find(PersistentOrderSummary).length).toEqual(1);
-  });
-
   it("has 3 SummaryLine", () => {
     expect(wrapper.find(SummaryLine).length).toEqual(3);
   });
@@ -37,21 +33,38 @@ describe("<PersistentOrderSummary />", () => {
     expect(wrapper.find(Expand).length).toEqual(2);
   });
 
-  // expand button function
-  it("has button for promo", () => {
-    wrapper.find("#expand-button-promo").simulate("click");
+  // expand control
+  it("has expand button for promo, promo area will show when click", () => {
+    wrapper.find("button#expand-button-promo").simulate("click");
     wrapper.update();
     expect(wrapper.find("#expanded-promo-container").length).toEqual(1);
   });
 
-  // promo input
-  it("has promo input after promo button click, user can type in, and value is correct", () => {
-    wrapper.find("#expand-button-promo").simulate("click");
-    wrapper.update();
-    wrapper.find("input").simulate("change", {
-      target: { value: "test" }
+  describe("the promo area function after promo expanded", () => {
+    beforeEach(() => {
+      wrapper.find("#expand-button-promo").simulate("click");
+      wrapper.update();
+      wrapper.find("input").simulate("change", {
+        target: { value: "test" }
+      });
+      wrapper.update();
     });
-    wrapper.update();
-    expect(wrapper.find("input").prop("value")).toEqual("test");
+
+    // promo input
+    it("has promo input user can type in, and value is correct", () => {
+      expect(wrapper.find("input#promo-input").prop("value")).toEqual("test");
+    });
+
+    it("has submit button", () => {
+      expect(wrapper.find("button#expanded-promo-submit-btn").length).toEqual(
+        1
+      );
+    });
+
+    it("when promo submit button clicked, input value gets empty", () => {
+      wrapper.find("button#expanded-promo-submit-btn").simulate("click");
+      wrapper.update();
+      expect(wrapper.find("input#promo-input").prop("value")).toEqual("");
+    });
   });
 });

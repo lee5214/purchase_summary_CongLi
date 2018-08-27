@@ -42,6 +42,7 @@ class PersistentOrderSummary extends Component {
   };
   handlePromoSubmit = () => {
     this.props.applyPromo(this.state.promoInput);
+    this.handlePromoInput("");
   };
   render() {
     const { orderSummary, promo } = this.props;

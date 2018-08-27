@@ -51,7 +51,11 @@ export default ({
               onChange={e => handlePromoInput(e.target.value)}
               value={promoInput}
             />
-            <button className={styles.inputButton} onClick={handlePromoSubmit}>
+            <button
+              id={"expanded-promo-submit-btn"}
+              className={styles.inputButton}
+              onClick={handlePromoSubmit}
+            >
               Apply
             </button>
           </div>

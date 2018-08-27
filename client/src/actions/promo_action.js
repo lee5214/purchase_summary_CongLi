@@ -9,7 +9,7 @@ const applyPromo = str => async dispatch => {
       dispatch({ type: APPLE_PROMO, payload: res.data });
     })
     .catch(e => {
-      console.log(e);
+      console.log(e.response);
     });
 };
 export { APPLE_PROMO, applyPromo };

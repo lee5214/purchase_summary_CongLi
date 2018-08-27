@@ -7,6 +7,6 @@ const fetchOrderSummary = () => async dispatch => {
     .then(res => {
       dispatch({ type: FETCH_ORDER_SUMMARY, payload: res.data });
     })
-    .catch(e => console.log(e));
+    .catch(e => console.log(e.response));
 };
 export { FETCH_ORDER_SUMMARY, fetchOrderSummary };
